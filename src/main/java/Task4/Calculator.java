@@ -45,13 +45,4 @@ public class Calculator implements CalculatorInterface {
 
         return result;
     }
-
-    @Override
-    public void printResult() {
-        if (result == null) {
-            System.out.println(errorMessage);
-        } else {
-            System.out.println("Результат вычисления: " + result);
-        }
-    }
 }

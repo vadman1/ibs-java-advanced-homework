@@ -1,34 +1,36 @@
 package Task4;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Main {
 
     public static void main(String[] args) {
-        double num1 = 2;
-        double num2 = 3;
 
         Calculator calculator = new Calculator();
-        // вывод незаполенных полей
-        calculator.getFirstNumber();
-        calculator.getSecondNumber();
-        calculator.printResult();
+        double num1;
+        double num2;
 
-        System.out.println(calculator.performCalculations(num1, num2, "+"));
-        System.out.println(calculator.getFirstNumber());
-        System.out.println(calculator.getSecondNumber());
-        calculator.printResult();
-        calculator.performCalculations(num1, num2, "-");
-        calculator.printResult();
-        calculator.performCalculations(num1, num2, "*");
-        calculator.printResult();
-        calculator.performCalculations(num1, num2, "/");
-        calculator.printResult();
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+            System.out.println("Введите первое число: ");
+            num1 = Double.parseDouble(reader.readLine().replace(",", "."));
 
-        num2 = 0;
-        calculator.performCalculations(num1, num2, "=");
-        calculator.printResult();
+            System.out.println("Введите второе число: ");
+            num2 = Double.parseDouble(reader.readLine().replace(",", "."));
 
-        num2 = 0;
-        calculator.performCalculations(num1, num2, "/");
-        calculator.printResult();
+            System.out.println("Укажите операцию: ");
+            String operation = reader.readLine();
+
+            Double result = calculator.performCalculations(num1, num2, operation);
+
+            System.out.println("Результат вычисления: " + result);
+
+        }  catch (NumberFormatException e) {
+            System.out.println("Необходимо ввести число");
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
