@@ -1,4 +1,4 @@
-package Task4;
+package Task4and6;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -26,9 +26,13 @@ public class Main {
 
             System.out.println("Результат вычисления: " + result);
 
-        }  catch (NumberFormatException e) {
-            System.out.println("Необходимо ввести число");
+        } catch (NumberFormatException e) {
+            System.out.println("Введено не число!");
             e.printStackTrace();
+        } catch (IllegalArgumentException e) {
+            System.out.println("Введён некорректный знак!");
+        } catch (ArithmeticException e) {
+            System.out.println("Ошибка при делении на ноль!");
         } catch (IOException e) {
             e.printStackTrace();
         }

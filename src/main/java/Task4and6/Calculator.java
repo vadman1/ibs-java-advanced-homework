@@ -1,4 +1,4 @@
-package Task4;
+package Task4and6;
 
 public class Calculator implements CalculatorInterface {
 
